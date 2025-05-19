@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dwpbank – Aufgabe Trainee Auswahltag</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <h1>Wertpapiervergleich</h1>
+        <p class="sub">Aktienkurse · Kurstrends · Vergleiche</p>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <div class="container">
+        <section id="favoriten">
+          <h2>Meine Favoriten</h2>
+          <table>
+            <thead>
+              <tr>
+                <th data-favsort="name">Name ⬍</th>
+                <th data-favsort="typ">Typ ⬍</th>
+                <th data-favsort="kurs">Kurs ⬍</th>
+                <th data-favsort="risiko">Risiko ⬍</th>
+                <th>Details</th>
+                <th>Aus den Favoriten entfernen</th>
+                <th>Vergleichen</th>
+              </tr>
+            </thead>
+
+            <tbody id="favoriten-tabelle"></tbody>
+          </table>
+        </section>
+        <section id="vergleich">
+          <h2>Vergleich</h2>
+          <p id="vergleich-hinweis" style="display: none; text-align: center; color: #888; margin-top: 1rem">
+            Um den Vergleich zu starten, bitte mindestens ein Wertpapier auswählen.
+          </p>
+          <canvas id="vergleich-chart"></canvas>
+        </section>
+      </div>
+
+      <div class="container">
+        <section id="filter">
+          <input type="text" id="search" placeholder="Nach Wertpapieren suchen..." />
+          <div class="tab-filter">
+            <h2>Filter nach Wertpapierart:</h2>
+            <div class="tab-group" data-filter="typ">
+              <button data-value="" class="active">Alle</button>
+              <button data-value="Aktie">Aktie</button>
+              <button data-value="ETF">ETF</button>
+              <button data-value="Fonds">Fonds</button>
+              <button data-value="Anleihe">Anleihe</button>
+            </div>
+            <h2>Filter nach Risiko:</h2>
+            <div class="tab-group" data-filter="risiko">
+              <button data-value="" class="active">Alle</button>
+              <button data-value="niedrig">Niedrig</button>
+              <button data-value="mittel">Mittel</button>
+              <button data-value="hoch">Hoch</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="tabelle">
+        <table>
+          <thead>
+            <tr>
+              <th data-sort="name">Name ⬍</th>
+              <th data-sort="typ">Typ ⬍</th>
+              <th data-sort="kurs">Kurs ⬍</th>
+              <th></th>
+              <th data-sort="risiko">Risiko ⬍</th>
+              <th>Details</th>
+              <th>Favorisieren</th>
+              <th>Vergleichen</th>
+            </tr>
+          </thead>
+
+          <tbody id="wp-tabelle">
+            <!-- Dynamisch -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <div id="detail-modal">
+      <div class="modal-content">
+        <button id="modal-close" aria-label="Schließen">&times;</button>
+        <h2 id="modal-title">Wertpapier Name</h2>
+        <p><strong>Emittent:</strong> <span id="modal-emittent"></span></p>
+        <p><strong>ISIN:</strong> <span id="modal-isin"></span></p>
+        <p><strong>Typ:</strong> <span id="modal-typ"></span></p>
+        <p><strong>WKN:</strong> <span id="modal-wkn"></span></p>
+        <p><strong>Risiko:</strong> <span id="modal-risiko"></span></p>
+        <p><strong>Kurs:</strong> <span id="modal-kurs"></span></p>
+        <p><strong>Datum der nächsten Hauptversammlung:</strong> <span id="modal-dnhv"></span></p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>© 2025 Lukas Eyring</p>
+      <p>Daten ohne Gewähr. Keine Weitergabe oder Tracking. Lokale Speicherung aktiv.</p>
+    </footer>
+
+    <script type="module" src="/compiled/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+[
+  {
+    "wkn": "123456",
+    "isin": "DE0001234567",
+    "name": "TechCorp Aktie",
+    "typ": "Aktie",
+    "kurs": 152.3,
+    "anlagerisiko": "Hoch",
+    "datum_naechste_hauptversammlung": "2025-06-15",
+    "emittent": "TechCorp AG"
+  },
+  {
+    "wkn": "654321",
+    "isin": "DE0006543210",
+    "name": "Enterprises Bond",
+    "typ": "Anleihe",
+    "kurs": 101.4,
+    "anlagerisiko": "Mittel",
+    "datum_naechste_hauptversammlung": "2025-07-10",
+    "emittent": "Enterprises GmbH"
+  },
+  {
+    "wkn": "111111",
+    "isin": "DE0001111111",
+    "name": "Global Mix Fund",
+    "typ": "Fonds",
+    "kurs": 87.2,
+    "anlagerisiko": "Mittel",
+    "datum_naechste_hauptversammlung": "2025-08-20",
+    "emittent": "Global Invest AG"
+  },
+  {
+    "wkn": "222222",
+    "isin": "DE0002222222",
+    "name": "Energy Sector ETF",
+    "typ": "ETF",
+    "kurs": 112.5,
+    "anlagerisiko": "Mittel",
+    "datum_naechste_hauptversammlung": "2025-09-12",
+    "emittent": "Energy Group"
+  },
+  {
+    "wkn": "333333",
+    "isin": "DE0003333333",
+    "name": "Pharma Innovations",
+    "typ": "Aktie",
+    "kurs": 98.75,
+    "anlagerisiko": "Hoch",
+    "datum_naechste_hauptversammlung": "2025-06-30",
+    "emittent": "Pharma AG"
+  },
+  {
+    "wkn": "444444",
+    "isin": "DE0004444444",
+    "name": "Govt Bond 10Y",
+    "typ": "Anleihe",
+    "kurs": 100.0,
+    "anlagerisiko": "Niedrig",
+    "datum_naechste_hauptversammlung": "2025-09-01",
+    "emittent": "Bundesrepublik Deutschland"
+  },
+  {
+    "wkn": "555555",
+    "isin": "DE0005555555",
+    "name": "Real Estate Fund",
+    "typ": "Fonds",
+    "kurs": 143.8,
+    "anlagerisiko": "Mittel",
+    "datum_naechste_hauptversammlung": "2025-07-25",
+    "emittent": "Real Invest AG"
+  },
+  {
+    "wkn": "666666",
+    "isin": "DE0006666666",
+    "name": "Consumer Goods ETF",
+    "typ": "ETF",
+    "kurs": 72.5,
+    "anlagerisiko": "Mittel",
+    "datum_naechste_hauptversammlung": "2025-08-15",
+    "emittent": "Consumer Group"
+  },
+  {
+    "wkn": "777777",
+    "isin": "DE0007777777",
+    "name": "AutoMotive AG",
+    "typ": "Aktie",
+    "kurs": 215.0,
+    "anlagerisiko": "Hoch",
+    "datum_naechste_hauptversammlung": "2025-06-20",
+    "emittent": "AutoMotive AG"
+  },
+  {
+    "wkn": "888888",
+    "isin": "DE0008888888",
+    "name": "Convertible Bond",
+    "typ": "Anleihe",
+    "kurs": 103.2,
+    "anlagerisiko": "Mittel",
+    "datum_naechste_hauptversammlung": "2025-07-05",
+    "emittent": "Convertible Ltd."
+  },
+  {
+    "wkn": "999999",
+    "isin": "DE0009999999",
+    "name": "Fixed Income Fund",
+    "typ": "Fonds",
+    "kurs": 95.6,
+    "anlagerisiko": "Niedrig",
+    "datum_naechste_hauptversammlung": "2025-08-10",
+    "emittent": "Fixed Invest"
+  },
+  {
+    "wkn": "101010",
+    "isin": "DE0001010101",
+    "name": "Tech Sector ETF",
+    "typ": "ETF",
+    "kurs": 123.45,
+    "anlagerisiko": "Hoch",
+    "datum_naechste_hauptversammlung": "2025-09-20",
+    "emittent": "Tech Group"
+  },
+  {
+    "wkn": "202020",
+    "isin": "DE0002020202",
+    "name": "ChemIndustries",
+    "typ": "Aktie",
+    "kurs": 67.9,
+    "anlagerisiko": "Mittel",
+    "datum_naechste_hauptversammlung": "2025-06-25",
+    "emittent": "Chem AG"
+  },
+  {
+    "wkn": "303030",
+    "isin": "DE0003030303",
+    "name": "High Yield Bond",
+    "typ": "Anleihe",
+    "kurs": 110.15,
+    "anlagerisiko": "Hoch",
+    "datum_naechste_hauptversammlung": "2025-07-15",
+    "emittent": "High Yield Corp."
+  },
+  {
+    "wkn": "404040",
+    "isin": "DE0004040404",
+    "name": "Equity Growth Fund",
+    "typ": "Fonds",
+    "kurs": 129.0,
+    "anlagerisiko": "Hoch",
+    "datum_naechste_hauptversammlung": "2025-08-05",
+    "emittent": "Growth Invest"
+  }
+]
