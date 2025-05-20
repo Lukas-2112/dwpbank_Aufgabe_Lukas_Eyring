@@ -204,6 +204,12 @@ function renderFavoriten(data: Wertpapier[]) {
 
 // Baut die Favoriten-Tabelle aus den gegebenen Wertpapieren
 // (Entfernen-Buttons nutzen Delegation, siehe unten)
+
+function getFilteredFavoriten(): Wertpapier[] {
+  const favoriten = getFavoriten();
+  return globalData.filter((wp) => favoriten.includes(wp.wkn));
+}
+
 function renderFavoritenTabelle(data: Wertpapier[]) {
   favBody.innerHTML = "";
   const sorted = sortList(data, currentFavSort);
@@ -308,7 +314,7 @@ document.querySelectorAll("th[data-sort]").forEach((th) => {
     } else {
       currentSort = { key, dir: "asc" };
     }
-    renderTable(globalData);
+    applyFilter();
   });
 });
 
@@ -334,7 +340,7 @@ document.addEventListener("click", (e) => {
     const favs = getFavoriten();
     const updated = favs.includes(wkn) ? favs.filter((f) => f !== wkn) : [...favs, wkn];
     setFavoriten(updated);
-    renderTable(globalData);
+    applyFilter();
     renderFavoriten(globalData);
   }
   if (target.matches(".details-btn")) {
@@ -344,20 +350,24 @@ document.addEventListener("click", (e) => {
     if (wp) openDetailModal(wp);
   }
 });
-
+function getVergleichsWertpapiere(): Wertpapier[] {
+  const selected = getVergleichsWKNs();
+  return globalData.filter((wp) => selected.includes(wp.wkn));
+}
 // Vergleichs-Checkbox – Event-Delegation für dynamische Tabelle
 document.addEventListener("change", (e) => {
   const cb = e.target as HTMLInputElement;
   if (cb.matches(".vergleich-check")) {
-    // Wertpapier zur Vergleichsliste hinzufügen oder entfernen
     const wkn = cb.dataset.wkn!;
     const selected = getVergleichsWKNs();
-    const updated = cb.checked ? [...selected, wkn] : selected.filter((f) => f !== wkn);
+    const updated = cb.checked ? [...new Set([...selected, wkn])] : selected.filter((f) => f !== wkn);
+
     setVergleichsWKNs(updated);
 
-    // Beide Tabellen neu rendern!
-    renderTable(globalData);
-    renderFavoriten(globalData);
+    // Filter erneut anwenden und alle Views aktualisieren
+    applyFilter();
+    renderFavoritenTabelle(getFilteredFavoriten());
+    renderVergleichChart(getVergleichsWertpapiere());
   }
 });
 

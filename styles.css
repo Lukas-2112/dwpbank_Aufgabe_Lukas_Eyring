@@ -22,6 +22,7 @@ body {
   line-height: 1.5;
 }
 
+/* Header */
 .site-header {
   background: #fff;
   border-bottom: 1px solid var(--color-border);
@@ -42,6 +43,7 @@ body {
   margin-top: 0.25rem;
 }
 
+/* search */
 #search {
   display: block;
   width: 100%;
@@ -64,6 +66,7 @@ body {
   box-shadow: 0 0 0 3px rgba(51, 102, 153, 0.2);
 }
 
+/* Filter Group*/
 .tab-filter {
   max-width: 1600px;
   margin: 1rem 0;
@@ -104,6 +107,7 @@ body {
   color: #fff;
 }
 
+/* Container & Sections */
 .container {
   max-width: 1600px;
   margin: 0 auto;
@@ -138,6 +142,8 @@ section h2 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
 }
+
+/* Tabellen */
 .tabelle table,
 #favoriten table {
   width: 100%;
@@ -174,6 +180,7 @@ section h2 {
   background: #e9f2fb;
 }
 
+/* Buttons */
 .btn,
 a {
   display: inline-block;
@@ -204,6 +211,18 @@ a:hover {
   border-color: #1d456d;
 }
 
+.btn-secondary {
+  background: #8d0d0d;
+  border-color: #a00f0f;
+}
+.btn-secondary:active {
+  background: #8d0d0d;
+  border-color: #8d0d0d;
+}
+.btn-secondary:hover {
+  background: #8d0d0d;
+  border-color: #8d0d0d;
+}
 #vergleich-chart {
   max-width: 100%;
   height: auto;
@@ -216,6 +235,7 @@ a:hover {
   margin-top: 0.5rem;
 }
 
+/* Detail-Modal */
 #detail-modal {
   position: fixed;
   top: 0;
