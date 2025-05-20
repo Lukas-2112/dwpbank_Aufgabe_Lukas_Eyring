@@ -19,9 +19,12 @@ const VERGLEICH_KEY = "vergleich";
 
 let globalData: Wertpapier[] = [];
 let vergleichChartInstance: any = null;
+// Variablen Typ Objekt oder Null für die Sortierung
 let currentSort: { key: string; dir: "asc" | "desc" } | null = null;
 let currentFavSort: { key: string; dir: "asc" | "desc" } | null = null;
+// Color Palette für die Charts
 const COLOR_PALETTE = ["#4caf50", "#2196f3", "#ff9800", "#9c27b0", "#f44336", "#00bcd4", "#8bc34a", "#e91e63"];
+// Monatslabels für die Charts
 const MONTH_LABELS = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
 const RISK_RANK: Record<string, number> = { hoch: 3, mittel: 2, niedrig: 1 };
 
@@ -42,7 +45,7 @@ function getColor(index: number): string {
   return COLOR_PALETTE[index % COLOR_PALETTE.length];
 }
 
-// Gemeinsame Sortierfunktion für Haupt- und Favoritentabelle
+// Sortierfunktion für Haupt- und Favoritentabelle
 function sortList(data: Wertpapier[], sortConfig: { key: string; dir: "asc" | "desc" } | null): Wertpapier[] {
   if (!sortConfig) return data;
   const sorted = [...data];
@@ -64,7 +67,7 @@ function sortList(data: Wertpapier[], sortConfig: { key: string; dir: "asc" | "d
   return sorted;
 }
 
-// Kleines Sparkline-Chart im Tabellenfeld zeichnen
+// Kleines Chart im Tabellenfeld zeichnen
 function renderMiniChart(canvasId: string, data: number[]) {
   const ctx = (document.getElementById(canvasId) as HTMLCanvasElement)?.getContext("2d");
   if (!ctx) return;
@@ -203,8 +206,6 @@ function renderFavoriten(data: Wertpapier[]) {
 }
 
 // Baut die Favoriten-Tabelle aus den gegebenen Wertpapieren
-// (Entfernen-Buttons nutzen Delegation, siehe unten)
-
 function getFilteredFavoriten(): Wertpapier[] {
   const favoriten = getFavoriten();
   return globalData.filter((wp) => favoriten.includes(wp.wkn));
@@ -228,7 +229,7 @@ function renderFavoritenTabelle(data: Wertpapier[]) {
       <td><button class="btn btn-secondary" data-wkn="${wp.wkn}">Entfernen</button></td>
       <td><input type="checkbox" class="vergleich-check" data-wkn="${wp.wkn}" ${isVergleich ? "checked" : ""}></td>
     `;
-    // (Details-Button Event-Listener wird global behandelt)
+
     favBody.appendChild(tr);
   });
 }
@@ -258,9 +259,8 @@ function renderTable(data: Wertpapier[]) {
       <td><input type="checkbox" class="vergleich-check" data-wkn="${wp.wkn}" ${isVergleich ? "checked" : ""}></td>
       
     `;
-    // (Details-Button Event-Listener wird global behandelt)
-    tableBody.appendChild(tr);
 
+    tableBody.appendChild(tr);
     renderMiniChart(canvasId, kursverlauf);
   });
 }
@@ -331,7 +331,7 @@ document.querySelectorAll("th[data-favsort]").forEach((th) => {
   });
 });
 
-// Favoriten-Buttons (Merken/Entfernen) – Event-Delegation für dynamische Tabelle
+// Favoriten-Buttons (Merken/Entfernen)
 document.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if (target.matches(".btn[data-wkn]") && !target.matches(".details-btn")) {
@@ -350,11 +350,14 @@ document.addEventListener("click", (e) => {
     if (wp) openDetailModal(wp);
   }
 });
+
+// Gib alle Wertpapiere aus globalData, die aktuell zum Vergleich ausgewählt sind zurück.
 function getVergleichsWertpapiere(): Wertpapier[] {
   const selected = getVergleichsWKNs();
   return globalData.filter((wp) => selected.includes(wp.wkn));
 }
-// Vergleichs-Checkbox – Event-Delegation für dynamische Tabelle
+
+// Vergleichs-Checkbox
 document.addEventListener("change", (e) => {
   const cb = e.target as HTMLInputElement;
   if (cb.matches(".vergleich-check")) {
